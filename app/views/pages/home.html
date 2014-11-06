@@ -1,0 +1,23 @@
+<script type="text/x-handlebars" data-template-name="posts">
+  {{#each}}
+    {{#view "post"}}
+      <div class="post">
+        <span>{{_view.contentIndex}}</span>
+        <span class="author">{{author}}</span>
+        <span class="time">{{formatTime created_at}}</span>
+        <div class="body">{{body}}</div>
+      </div>
+    {{/view}}
+  {{/each}}
+
+  <form {{action "create" on="submit"}}>
+    <div>
+      お名前：{{input type="text" value=author required=true}}
+    </div>
+    <div>
+      本文：
+      {{textarea value=body required=true}}
+    </div>
+    <input type="submit" value="投稿する">
+  </form>
+</script>
